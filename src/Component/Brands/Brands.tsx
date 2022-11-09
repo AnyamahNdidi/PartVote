@@ -1,38 +1,46 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled from "styled-components"
-import Slider, {Settings} from 'react-slick';
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
 const Brands = () =>
 {
-   const defaultSettings: Settings = {
-      dots: true,
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
-      cssEase: "linear"
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
-  const [nav1, setNav1] = React.useState<any>();
-    const [nav2, setNav2] =  React.useState();
+  const [nav1, setNav1] = React.useState<any>(null);
+    const [nav2, setNav2] =  React.useState<any>(null);
     const slider1 = React.useRef();
     const slider2 = React.useRef();
   return (
     <Container>
       <Wrapper>
         <div>
-        <h2>Auto Play</h2>
-          <Slider 
-            asNavFor={nav2}
-            {...defaultSettings}
-         ref={slider1 => setNav1(slider1)}>  
-            <div><h1>1</h1></div>
-            <div><h1>1</h1></div>
-            <div><h1>1</h1></div>
-            <div><h1>1</h1></div>
-            <div><h1>1</h1></div>
-            
+          <h2>Auto Play</h2>
+          
+        <Slider {...settings}>
+          <div>
+            <h3>1</h3>
+          </div>
+          <div>
+            <h3>2</h3>
+          </div>
+          <div>
+            <h3>3</h3>
+          </div>
+          <div>
+            <h3>4</h3>
+          </div>
+          <div>
+            <h3>5</h3>
+          </div>
+          <div>
+            <h3>6</h3>
+          </div>
         </Slider>
       </div>
       </Wrapper>
@@ -49,7 +57,7 @@ const MySlick = styled.div`
 
 const Wrapper = styled.div`
   width:1200px;
-  height:100px;
+  height:auto;
   display:flex;
   flex-direction: column;
  align-items: center;
@@ -60,7 +68,7 @@ const Wrapper = styled.div`
 
   
 @media screen and (max-width: 600px) {
-    width:100%
+    width:100%;
     height:auto;
     
     }
@@ -68,7 +76,7 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
 width:100%;
-height:100px;
+height:auto;
 
 display:flex;
 justify-content: center;
